@@ -1,0 +1,24 @@
+{
+  "name": "generator-sfdo-eda",
+  "version": "0.1.1",
+  "description": "Code Generator for EDA",
+  "author": "Iskander Mukhamedgaliyev",
+  "license": "ISC",
+  "files": [
+    "generators"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iskander-sfdc/yo-eda"
+  },
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "chalk": "^2.3.0",
+    "github-username": "^4.1.0",
+    "shelljs": "^0.7.8",
+    "yeoman-generator": "^5.3.0",
+    "yosay": "^2.0.1"
+  }
+}
