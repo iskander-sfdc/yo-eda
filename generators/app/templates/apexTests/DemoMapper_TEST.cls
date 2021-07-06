@@ -43,17 +43,17 @@ public with sharing class <%=mapperClassName%>_TEST {
     @isTest
     private static void getInstanceNew() {
         Test.startTest();
-        <%=mapperClassName%> <%=mapperClassName%>Instance = <%=mapperClassName%>.getInstance();
+        <%=mapperClassName%> <%=_.camelCase(mapperClassName)%>Instance = <%=mapperClassName%>.getInstance();
         Test.stopTest();
 
         System.assertEquals(
             <%=mapperClassName%>.instance,
-            <%=mapperClassName%>Instance,
+            <%=_.camelCase(mapperClassName)%>Instance,
             'Instance of mapper class returned should match static instance variable.'
         );
         System.assertEquals(
             true,
-            <%=mapperClassName%>Instance != null,
+            <%=_.camelCase(mapperClassName)%>Instance != null,
             'Instance of mapper class should not be null.'
         );
     }
@@ -65,23 +65,23 @@ public with sharing class <%=mapperClassName%>_TEST {
     @isTest
     private static void getInstanceExisting() {
         Test.startTest();
-        <%=mapperClassName%> <%=mapperClassName%>Instance1 = <%=mapperClassName%>.getInstance();
-        <%=mapperClassName%> <%=mapperClassName%>Instance2 = <%=mapperClassName%>.getInstance();
+        <%=mapperClassName%> <%=_.camelCase(mapperClassName)%>Instance1 = <%=mapperClassName%>.getInstance();
+        <%=mapperClassName%> <%=_.camelCase(mapperClassName)%>Instance2 = <%=mapperClassName%>.getInstance();
         Test.stopTest();
 
         System.assertEquals(
             <%=mapperClassName%>.instance,
-            <%=mapperClassName%>Instance1,
+            <%=_.camelCase(mapperClassName)%>Instance1,
             'Instance of mapper class returned should match static instance variable.'
         );
         System.assertEquals(
-            <%=mapperClassName%>Instance1,
-            <%=mapperClassName%>Instance2,
+            <%=_.camelCase(mapperClassName)%>Instance1,
+            <%=_.camelCase(mapperClassName)%>Instance2,
             'Subsequent retrievals of mapper class instance should return existing instance.'
         );
         System.assertEquals(
             true,
-            <%=mapperClassName%>Instance1 != null,
+            <%=_.camelCase(mapperClassName)%>Instance1 != null,
             'Instance of mapper class should not be null.'
         );
     }
@@ -100,17 +100,17 @@ public with sharing class <%=mapperClassName%>_TEST {
         );
         */
 
-        <%=mapperClassName%> <%=mapperClassName%>Instance = <%=mapperClassName%>.getInstance();
+        <%=mapperClassName%> <%=_.camelCase(mapperClassName)%>Instance = <%=mapperClassName%>.getInstance();
 
         Test.startTest();
-        <%=modelClassName%> <%=modelClassName%>Instance = <%=mapperClassName%>Instance.get<%=modelClassName%>();
+        <%=modelClassName%> <%=_.camelCase(modelClassName)%>Instance = <%=_.camelCase(mapperClassName)%>Instance.get<%=modelClassName%>();
         Test.stopTest();
 
         //TODO: Write assertions to test the model against the test record, for example:
         /*
         System.assertEquals(
             hierarchySettings.Validate_Program_Plan_for_Nested_PR__c,
-            <%=modelClassName%>Instance.validateProgramPlanForNestedPR,
+            <%=_.camelCase(modelClassName)%>Instance.validateProgramPlanForNestedPR,
             'validateProgramPlanForNestedPR should be enabled.'
         );
         */

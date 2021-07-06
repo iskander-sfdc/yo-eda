@@ -43,14 +43,14 @@ public with sharing class <%=vModelClassName%>_TEST {
     @isTest
     private static void modelConstructorValid() {
         Test.startTest();
-        <%=vModelClassName%> <%=vModelClassName%>Instance = new <%=vModelClassName%>(/* TODO: Specify initial field values */);
+        <%=vModelClassName%> <%=_.camelCase(vModelClassName)%>Instance = new <%=vModelClassName%>(/* TODO: Specify initial field values */);
         Test.stopTest();
 
         //TODO: write assertions for model field values, for example:
         /*
         System.assertEquals(
             initialFieldValue,
-            <%=vModelClassName%>Instance.fieldName,
+            <%=_.camelCase(vModelClassName)%>Instance.fieldName,
             'fieldName should return initialFieldValue'
         );
         */

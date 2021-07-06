@@ -41,12 +41,12 @@ private with sharing class <%=controllerClassName%>_TEST {
     @isTest
     private static void locate<%=vMapperClassName%>Valid() {
         Test.startTest();
-        <%=vMapperClassName%> <%=vMapperClassName%>Instance = <%=controllerClassName%>.locate<%=vMapperClassName%>();
+        <%=vMapperClassName%> <%=_.camelCase(vMapperClassName)%>Instance = <%=controllerClassName%>.locate<%=vMapperClassName%>();
         Test.stopTest();
 
         System.assertEquals(
             <%=vMapperClassName%>.getInstance(),
-            <%=vMapperClassName%>Instance,
+            <%=_.camelCase(vMapperClassName)%>Instance,
             'Should return instance of <%=vMapperClassName%> class.'
         );
     }
@@ -58,12 +58,12 @@ private with sharing class <%=controllerClassName%>_TEST {
     @isTest
     private static void locate<%=serviceClassName%>() {
         Test.startTest();
-        <%=serviceClassName%> <%=serviceClassName%>Instance = <%=controllerClassName%>.locate<%=serviceClassName%>();
+        <%=serviceClassName%> <%=_.camelCase(serviceClassName)%>Instance = <%=controllerClassName%>.locate<%=serviceClassName%>();
         Test.stopTest();
 
         System.assertEquals(
             <%=serviceClassName%>.getInstance(),
-            <%=serviceClassName%>Instance,
+            <%=_.camelCase(serviceClassName)%>Instance,
             'Should return instance of <%=serviceClassName%> class.'
         );
     }
@@ -77,14 +77,14 @@ private with sharing class <%=controllerClassName%>_TEST {
         <%=vMapperClassName%>.instance = new STUB_<%=vMapperClassName%>Valid();
 
         Test.startTest();
-        <%=vModelClassName%> <%=vModelClassName%>Instance = <%=controllerClassName%>.get<%=vModelClassName%>();
+        <%=vModelClassName%> <%=_.camelCase(vModelClassName)%>Instance = <%=controllerClassName%>.get<%=vModelClassName%>();
         Test.stopTest();
 
         //TODO: Add <%=vModelClassName%>Instance public fields values validation, for example
         /*
         System.assertEquals(
             expectedPropertyValue,
-            <%=vModelClassName%>Instance.propertyName,
+            <%=_.camelCase(vModelClassName)%>Instance.propertyName,
             'propertyName should return expectedPropertyValue'
         );
         */
@@ -100,7 +100,7 @@ private with sharing class <%=controllerClassName%>_TEST {
 
         try {
             Test.startTest();
-            <%=vModelClassName%> <%=vModelClassName%>Instance = <%=controllerClassName%>.get<%=vModelClassName%>();
+            <%=vModelClassName%> <%=_.camelCase(vModelClassName)%>Instance = <%=controllerClassName%>.get<%=vModelClassName%>();
             Test.stopTest();
             System.assert(false, 'should always throw an exception');
         } catch (AuraHandledException e) {

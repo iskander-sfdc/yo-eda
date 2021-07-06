@@ -54,24 +54,25 @@ $ yo sfdo-eda ProductRegistry
    __'.___.'__   
  ´   `  |° ´ Y ` 
 
-To generate code please provide the following class names
-Input None if you don't want to generate a certain class
+To generate EDA classes please answer the following questions:
+? Choose classes you want to generate: Model, Mapper, Service, View Model, Controller
 ? API version 52.0
 ? force-app/main subfolder default
 ? Controller Class Name ProductRegistryController
 ? VMapper Class Name ProductRegistryVMapper
 ? Service Class Name ProductRegistryService
-? VModel Class Name None
+? VModel Class Name ProductRegistryVModel
 ? model Class Name ProductRegistryModel
 ? mapper Class Name ProductRegistryMapper
 =========================
 modelName:  ProductRegistry
+features:  [ 'model', 'mapper', 'service', 'viewModel', 'controller' ]
 apiVersion:  52.0
 subFolderName:  default
 controllerClassName:  ProductRegistryController
 vMapperClassName:  ProductRegistryVMapper
 serviceClassName:  ProductRegistryService
-vModelClassName:  None
+vModelClassName:  ProductRegistryVModel
 modelClassName:  ProductRegistryModel
 mapperClassName:  ProductRegistryMapper
 =========================
@@ -83,12 +84,6 @@ Creating file /Users/imukhamedgaliyev/Documents/SalesforceOrg/EDA/force-app/main
 Creating Apex class ProductRegistryController_TEST
 Creating file /Users/imukhamedgaliyev/Documents/SalesforceOrg/EDA/force-app/main/default/classes/ProductRegistryController_TEST.cls
 Creating file /Users/imukhamedgaliyev/Documents/SalesforceOrg/EDA/force-app/main/default/classes/ProductRegistryController_TEST.cls-meta.xml
-Creating Apex class ProductRegistryVMapper
-Creating file /Users/imukhamedgaliyev/Documents/SalesforceOrg/EDA/force-app/main/default/classes/ProductRegistryVMapper.cls
-Creating file /Users/imukhamedgaliyev/Documents/SalesforceOrg/EDA/force-app/main/default/classes/ProductRegistryVMapper.cls-meta.xml
-Creating Apex class ProductRegistryVMapper_TEST
-Creating file /Users/imukhamedgaliyev/Documents/SalesforceOrg/EDA/force-app/main/default/classes/ProductRegistryVMapper_TEST.cls
-Creating file /Users/imukhamedgaliyev/Documents/SalesforceOrg/EDA/force-app/main/default/classes/ProductRegistryVMapper_TEST.cls-meta.xml
 Creating Apex class ProductRegistryService
 Creating file /Users/imukhamedgaliyev/Documents/SalesforceOrg/EDA/force-app/main/default/classes/ProductRegistryService.cls
 Creating file /Users/imukhamedgaliyev/Documents/SalesforceOrg/EDA/force-app/main/default/classes/ProductRegistryService.cls-meta.xml
@@ -101,6 +96,12 @@ Creating file /Users/imukhamedgaliyev/Documents/SalesforceOrg/EDA/force-app/main
 Creating Apex class ProductRegistryMapper_TEST
 Creating file /Users/imukhamedgaliyev/Documents/SalesforceOrg/EDA/force-app/main/default/classes/ProductRegistryMapper_TEST.cls
 Creating file /Users/imukhamedgaliyev/Documents/SalesforceOrg/EDA/force-app/main/default/classes/ProductRegistryMapper_TEST.cls-meta.xml
+Creating Apex class ProductRegistryVModel
+Creating file /Users/imukhamedgaliyev/Documents/SalesforceOrg/EDA/force-app/main/default/classes/ProductRegistryVModel.cls
+Creating file /Users/imukhamedgaliyev/Documents/SalesforceOrg/EDA/force-app/main/default/classes/ProductRegistryVModel.cls-meta.xml
+Creating Apex class ProductRegistryVModel_TEST
+Creating file /Users/imukhamedgaliyev/Documents/SalesforceOrg/EDA/force-app/main/default/classes/ProductRegistryVModel_TEST.cls
+Creating file /Users/imukhamedgaliyev/Documents/SalesforceOrg/EDA/force-app/main/default/classes/ProductRegistryVModel_TEST.cls-meta.xml
 Creating Apex class ProductRegistryModel
 Creating file /Users/imukhamedgaliyev/Documents/SalesforceOrg/EDA/force-app/main/default/classes/ProductRegistryModel.cls
 Creating file /Users/imukhamedgaliyev/Documents/SalesforceOrg/EDA/force-app/main/default/classes/ProductRegistryModel.cls-meta.xml
@@ -112,10 +113,6 @@ Finished creating Apex classes.
    create force-app/main/default/classes/ProductRegistryController.cls-meta.xml
    create force-app/main/default/classes/ProductRegistryController_TEST.cls
    create force-app/main/default/classes/ProductRegistryController_TEST.cls-meta.xml
-   create force-app/main/default/classes/ProductRegistryVMapper.cls
-   create force-app/main/default/classes/ProductRegistryVMapper.cls-meta.xml
-   create force-app/main/default/classes/ProductRegistryVMapper_TEST.cls
-   create force-app/main/default/classes/ProductRegistryVMapper_TEST.cls-meta.xml
    create force-app/main/default/classes/ProductRegistryService.cls
    create force-app/main/default/classes/ProductRegistryService.cls-meta.xml
    create force-app/main/default/classes/ProductRegistryService_TEST.cls
@@ -124,6 +121,10 @@ Finished creating Apex classes.
    create force-app/main/default/classes/ProductRegistryMapper.cls-meta.xml
    create force-app/main/default/classes/ProductRegistryMapper_TEST.cls
    create force-app/main/default/classes/ProductRegistryMapper_TEST.cls-meta.xml
+   create force-app/main/default/classes/ProductRegistryVModel.cls
+   create force-app/main/default/classes/ProductRegistryVModel.cls-meta.xml
+   create force-app/main/default/classes/ProductRegistryVModel_TEST.cls
+   create force-app/main/default/classes/ProductRegistryVModel_TEST.cls-meta.xml
    create force-app/main/default/classes/ProductRegistryModel.cls
    create force-app/main/default/classes/ProductRegistryModel.cls-meta.xml
    create force-app/main/default/classes/ProductRegistryModel_TEST.cls

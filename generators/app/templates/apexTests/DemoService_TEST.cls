@@ -43,12 +43,12 @@ public with sharing class <%=serviceClassName%>_TEST {
     @isTest
     private static void getInstanceNew() {
         Test.startTest();
-        <%=serviceClassName%> <%=serviceClassName%>Instance = <%=serviceClassName%>.getInstance();
+        <%=serviceClassName%> <%=_.camelCase(serviceClassName)%>Instance = <%=serviceClassName%>.getInstance();
         Test.stopTest();
 
         System.assertEquals(
             <%=serviceClassName%>.instance,
-            <%=serviceClassName%>Instance,
+            <%=_.camelCase(serviceClassName)%>Instance,
             'Instance of service class returned should match static instance variable.'
         );
         System.assertEquals(
@@ -65,21 +65,21 @@ public with sharing class <%=serviceClassName%>_TEST {
     @isTest
     private static void getInstanceExisting() {
         Test.startTest();
-        <%=serviceClassName%> <%=serviceClassName%>Instance1 = <%=serviceClassName%>.getInstance();
-        <%=serviceClassName%> <%=serviceClassName%>Instance2 = <%=serviceClassName%>.getInstance();
+        <%=serviceClassName%> <%=_.camelCase(serviceClassName)%>Instance1 = <%=serviceClassName%>.getInstance();
+        <%=serviceClassName%> <%=_.camelCase(serviceClassName)%>Instance2 = <%=serviceClassName%>.getInstance();
         Test.stopTest();
 
         System.assertEquals(
             <%=serviceClassName%>.instance,
-            <%=serviceClassName%>Instance1,
+            <%=_.camelCase(serviceClassName)%>Instance1,
             'Instance of service class returned should match static instance variable.'
         );
         System.assertEquals(
-            <%=serviceClassName%>Instance1,
-            <%=serviceClassName%>Instance2,
+            <%=_.camelCase(serviceClassName)%>Instance1,
+            <%=_.camelCase(serviceClassName)%>Instance2,
             'Subsequent retrievals of service class instance should return existing instance.'
         );
-        System.assertEquals(true, <%=serviceClassName%>Instance1 != null, 'Instance of service class should not be null.');
+        System.assertEquals(true, <%=_.camelCase(serviceClassName)%>Instance1 != null, 'Instance of service class should not be null.');
     }
 
     /**************************************************************************************************************************
@@ -88,15 +88,15 @@ public with sharing class <%=serviceClassName%>_TEST {
      ***************************************************************************************************************************/
     @isTest
     private static void locate<%=mapperClassName%>Valid() {
-        <%=serviceClassName%> <%=serviceClassName%>Instance = <%=serviceClassName%>.getInstance();
+        <%=serviceClassName%> <%=_.camelCase(serviceClassName)%>Instance = <%=serviceClassName%>.getInstance();
 
         Test.startTest();
-        <%=mapperClassName%> <%=mapperClassName%>Instance = <%=serviceClassName%>Instance.locate<%=mapperClassName%>();
+        <%=mapperClassName%> <%=_.camelCase(mapperClassName)%>Instance = <%=_.camelCase(serviceClassName)%>Instance.locate<%=mapperClassName%>();
         Test.stopTest();
 
         System.assertEquals(
             <%=mapperClassName%>.getInstance(),
-            <%=mapperClassName%>Instance,
+            <%=_.camelCase(mapperClassName)%>Instance,
             'Should return instance of <%=mapperClassName%> class.'
         );
     }
@@ -108,17 +108,17 @@ public with sharing class <%=serviceClassName%>_TEST {
     private static void get<%=modelClassName%>Valid() {
         <%=mapperClassName%>.instance = new STUB_<%=mapperClassName%>();
 
-        <%=serviceClassName%> <%=serviceClassName%>Instance = <%=serviceClassName%>.getInstance();
+        <%=serviceClassName%> <%=_.camelCase(serviceClassName)%>Instance = <%=serviceClassName%>.getInstance();
 
         Test.startTest();
-        <%=modelClassName%> <%=modelClassName%>Instance = <%=serviceClassName%>Instance.get<%=modelClassName%>();
+        <%=modelClassName%> <%=_.camelCase(modelClassName)%>Instance = <%=_.camelCase(serviceClassName)%>Instance.get<%=modelClassName%>();
         Test.stopTest();
 
         //TODO: Write assertions for Model field values, such as:
         /*
         System.assertEquals(
             expectedFieldValue,
-            <%=modelClassName%>Instance.fieldName,
+            <%=_.camelCase(modelClassName)%>Instance.fieldName,
             'fieldName should return expectedFieldValue'
         );
         */

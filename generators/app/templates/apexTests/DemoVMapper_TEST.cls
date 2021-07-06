@@ -43,17 +43,17 @@ public with sharing class <%=vMapperClassName%>_TEST {
     @isTest
     private static void getInstanceNew() {
         Test.startTest();
-        <%=vMapperClassName%> <%=vMapperClassName%>Instance = <%=vMapperClassName%>.getInstance();
+        <%=vMapperClassName%> <%=_.camelCase(vMapperClassName)%>Instance = <%=vMapperClassName%>.getInstance();
         Test.stopTest();
 
         System.assertEquals(
             <%=vMapperClassName%>.instance,
-            <%=vMapperClassName%>Instance,
+            <%=_.camelCase(vMapperClassName)%>Instance,
             'Instance of mapper class returned should match static instance variable.'
         );
         System.assertEquals(
             true,
-            <%=vMapperClassName%>Instance != null,
+            <%=_.camelCase(vMapperClassName)%>Instance != null,
             'Instance of mapper class should not be null.'
         );
     }
@@ -65,23 +65,23 @@ public with sharing class <%=vMapperClassName%>_TEST {
     @isTest
     private static void getInstanceExisting() {
         Test.startTest();
-        <%=vMapperClassName%> <%=vMapperClassName%>Instance1 = <%=vMapperClassName%>.getInstance();
-        <%=vMapperClassName%> <%=vMapperClassName%>Instance2 = <%=vMapperClassName%>.getInstance();
+        <%=vMapperClassName%> <%=_.camelCase(vMapperClassName)%>Instance1 = <%=vMapperClassName%>.getInstance();
+        <%=vMapperClassName%> <%=_.camelCase(vMapperClassName)%>Instance2 = <%=vMapperClassName%>.getInstance();
         Test.stopTest();
 
         System.assertEquals(
             <%=vMapperClassName%>.instance,
-            <%=vMapperClassName%>Instance1,
+            <%=_.camelCase(vMapperClassName)%>Instance1,
             'Instance of mapper class returned should match static instance variable.'
         );
         System.assertEquals(
-            <%=vMapperClassName%>Instance1,
-            <%=vMapperClassName%>Instance2,
+            <%=_.camelCase(vMapperClassName)%>Instance1,
+            <%=_.camelCase(vMapperClassName)%>Instance2,
             'Subsequent retrievals of mapper class instance should return existing instance.'
         );
         System.assertEquals(
             true,
-            <%=vMapperClassName%>Instance1 != null,
+            <%=_.camelCase(vMapperClassName)%>Instance1 != null,
             'Instance of mapper class should not be null.'
         );
     }
@@ -92,15 +92,15 @@ public with sharing class <%=vMapperClassName%>_TEST {
      ****************************************************************************************/
     @isTest
     private static void locate<%=serviceClassName%>Valid() {
-        <%=vMapperClassName%> <%=vMapperClassName%>Instance = <%=vMapperClassName%>.getInstance();
+        <%=vMapperClassName%> <%=_.camelCase(vMapperClassName)%>Instance = <%=vMapperClassName%>.getInstance();
 
         Test.startTest();
-        <%=serviceClassName%> <%=serviceClassName%>Instance = <%=vMapperClassName%>Instance.locate<%=serviceClassName%>();
+        <%=serviceClassName%> <%=_.camelCase(serviceClassName)%>Instance = <%=_.camelCase(vMapperClassName)%>Instance.locate<%=serviceClassName%>();
         Test.stopTest();
 
         System.assertEquals(
             <%=serviceClassName%>.getInstance(),
-            <%=serviceClassName%>Instance,
+            <%=_.camelCase(serviceClassName)%>Instance,
             'Should return instance of <%=serviceClassName%> class.'
         );
     }
@@ -112,17 +112,17 @@ public with sharing class <%=vMapperClassName%>_TEST {
     private static void getProgramPlanSettingsVModelValid() {
         <%=serviceClassName%>.instance = new STUB_<%=serviceClassName%>();
 
-        <%=vMapperClassName%> <%=vMapperClassName%>Instance = <%=vMapperClassName%>.getInstance();
+        <%=vMapperClassName%> <%=_.camelCase(vMapperClassName)%>Instance = <%=vMapperClassName%>.getInstance();
 
         Test.startTest();
-        <%=vModelClassName%> p<%=vModelClassName%>Instance = <%=vMapperClassName%>Instance.get<%=vModelClassName%>();
+        <%=vModelClassName%> <%=_.camelCase(vModelClassName)%>Instance = <%=_.camelCase(vMapperClassName)%>Instance.get<%=vModelClassName%>();
         Test.stopTest();
 
         //TODO: Write assertions for VModel field values, such as:
         /*
         System.assertEquals(
             expectedFieldValue,
-            <%=vModelClassName%>Instance.fieldName,
+            <%=_.camelCase(vModelClassName)%>Instance.fieldName,
             'fieldName value should return expectedFieldValue'
         );
         */

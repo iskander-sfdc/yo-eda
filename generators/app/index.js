@@ -3,6 +3,7 @@ var shell = require("shelljs");
 
 var chalk = require("chalk");
 var yosay = require("yosay");
+var _ = require('lodash');
 
 module.exports = class extends (
   Generator
@@ -24,16 +25,47 @@ module.exports = class extends (
     this.log(yosay(chalk.red("Welcome to EDA Code Generator!")));
 
     this.log(
-      chalk.green("To generate code please provide the following class names")
-    );
-    this.log(
-      chalk.green(
-        "Input None if you don't want to generate a certain class"
-      )
+      chalk.green("To generate EDA classes please answer the following questions:")
     );
   }
   prompting() {
     return this.prompt([
+      {
+        type: 'checkbox',
+        name: 'features',
+        message: 'Choose classes you want to generate:',
+        choices: [{
+            name: 'Model',
+            value: 'model',
+            checked: true
+          }, 
+          {
+            name: 'Mapper',
+            value: 'mapper',
+            checked: true
+          },
+          {
+            name: 'Service',
+            value: 'service',
+            checked: true
+          },
+          {
+            name: 'View Model',
+            value: 'viewModel',
+            checked: true
+          },
+          {
+            name: 'View Mapper',
+            value: 'viewMapper',
+            checked: true
+          },
+          {
+            name: 'Controller',
+            value: 'controller',
+            checked: true
+          }          
+        ]
+      },
       {
         type: "input",
         name: "apiVersion", // binding variable
@@ -94,6 +126,9 @@ module.exports = class extends (
 
       this.log("modelName: ", this.options.businessObjectName);
 
+      this.log("features: ", answers.features);
+      this.options.features = answers.features;
+
       this.log("apiVersion: ", answers.apiVersion);
       this.options.apiVersion = answers.apiVersion;
 
@@ -116,41 +151,7 @@ module.exports = class extends (
       this.options.modelClassName = answers.modelClassName;
 
       this.log("mapperClassName: ", answers.mapperClassName);
-      this.options.mapperClassName = answers.mapperClassName;
-
-      /*
-      this.log(chalk.green("Creating folders..."));
-
-      shell.mkdir(
-        "-p",
-        this.destinationRoot() +
-          "/" +
-          this.options.businessObjectName +
-          "/config"
-      );
-      shell.mkdir(
-        "-p",
-        this.destinationRoot() +
-          "/" +
-          this.options.businessObjectName +
-          "/force-app/main/default/classes"
-      );
-      shell.mkdir(
-        "-p",
-        this.destinationRoot() +
-          "/" +
-          this.options.businessObjectName +
-          "/force-app/main/default/tests"
-      );
-      shell.mkdir(
-        "-p",
-        this.destinationRoot() +
-          "/" +
-          this.options.businessObjectName +
-          "/force-app/main/default/aura"
-      );
-      this.log(chalk.green("Creating folders... completed."));
-      */
+      this.options.mapperClassName = answers.mapperClassName;      
 
       this.log("=========================");
     });
@@ -170,7 +171,8 @@ module.exports = class extends (
         vModelClassName: this.options.vModelClassName,
         modelClassName: this.options.modelClassName,
         mapperClassName: this.options.mapperClassName,
-        modelName: this.options.businessObjectName
+        modelName: this.options.businessObjectName,
+        _: _
       }
     );
     this.log('Creating file ' + this.destinationRoot() + "/force-app/main/"+ this.options.subFolderName + "/classes/" + apexClassName + ".cls-meta.xml");
@@ -187,7 +189,7 @@ module.exports = class extends (
     this.log(chalk.green("Creating Apex classes..."));
     this.log('Destination root: ' + this.destinationRoot());
 
-    if (this.options.controllerClassName.toLowerCase() != 'none') {
+    if (this.options.features.includes('controller')) {
       this._processApexClassTemplates(
         this.options.controllerClassName,
         "apex/DemoController.cls"
@@ -197,7 +199,7 @@ module.exports = class extends (
         "apexTests/DemoController_TEST.cls"
       );
     }
-    if (this.options.vMapperClassName.toLowerCase() != 'none') {
+    if (this.options.features.includes('viewMapper')) {
       this._processApexClassTemplates(
         this.options.vMapperClassName,
         "apex/DemoVMapper.cls"
@@ -207,7 +209,7 @@ module.exports = class extends (
         "apexTests/DemoVMapper_TEST.cls"
       );
     }
-    if (this.options.serviceClassName.toLowerCase() != 'none') {
+    if (this.options.features.includes('service')) {
       this._processApexClassTemplates(
         this.options.serviceClassName,
         "apex/DemoService.cls"
@@ -217,7 +219,7 @@ module.exports = class extends (
         "apexTests/DemoService_TEST.cls"
       );
     }
-    if (this.options.mapperClassName.toLowerCase() != 'none') {
+    if (this.options.features.includes('mapper')) {
       this._processApexClassTemplates(
         this.options.mapperClassName,
         "apex/DemoMapper.cls"
@@ -227,7 +229,7 @@ module.exports = class extends (
         "apexTests/DemoMapper_TEST.cls"
       );
     }
-    if (this.options.vModelClassName.toLowerCase() != 'none') {
+    if (this.options.features.includes('viewModel')) {
       this._processApexClassTemplates(
         this.options.vModelClassName,
         "apex/DemoVModel.cls"
@@ -237,7 +239,7 @@ module.exports = class extends (
         "apexTests/DemoVModel_TEST.cls"
       );
     }
-    if (this.options.modelClassName.toLowerCase() != 'none') {
+    if (this.options.features.includes('model')) {
       this._processApexClassTemplates(
         this.options.modelClassName,
         "apex/DemoModel.cls"

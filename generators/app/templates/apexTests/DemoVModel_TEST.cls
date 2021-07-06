@@ -43,14 +43,14 @@ public with sharing class <%=vModelClassName%>_TEST {
     @isTest
     private static void constructorValid() {
         Test.startTest();
-        <%=vModelClassName%> <%=vModelClassName%>Instance = new <%=vModelClassName%>(/*TODO: specify initial property values */);
+        <%=vModelClassName%> <%=_.camelCase(vModelClassName)%>Instance = new <%=vModelClassName%>(/*TODO: specify initial property values */);
         Test.stopTest();
 
         //TODO: write assertions for each view model property, for example
         /*
         System.assertEquals(
             initialPropertyValue,
-            <%=vModelClassName%>Instance.propertyName,
+            <%=_.camelCase(vModelClassName)%>Instance.propertyName,
             'PropertyName should return initialPropertyValue'
         );
         */
