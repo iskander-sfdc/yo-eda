@@ -20,6 +20,8 @@ TBD
 ```
 # checkout the generator from GIT
 $ git checkout https://github.com/iskander-sfdc/yo-eda
+# Install packages
+$ npm install
 # Link the generator locally
 $ sudo npm link
 
@@ -28,15 +30,16 @@ $ sudo npm link
 
 ### Usage Demo
 
-Navigate to the target project folder or open it in the vscode
-Run the following command from the terminal window
+1. Navigate to the target project folder or open it in the vscode
+2. Run the following command from the terminal window
 
 ```
 $ yo sfdo-eda ModelName
 ```
 
-Input class names or press enter to use defaults
-Input `None` if you don't want to generate a certain class
+3. Select which classes you want to generate
+4. Input API version, subfolder name, class names or press enter to use defaults
+5. The classes will be generated in `/force-app/main/{subFolderName}/classes/` folder
 
 ### Example
 
