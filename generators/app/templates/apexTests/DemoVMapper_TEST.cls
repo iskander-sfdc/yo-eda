@@ -109,7 +109,7 @@ public with sharing class <%=vMapperClassName%>_TEST {
      * @description Test method to verify get<%=vModelClassName%> returns a <%=vModelClassName%>
      ************************************************************************************************************************************/
     @isTest
-    private static void getProgramPlanSettingsVModelValid() {
+    private static void get<%=vModelClassName%>Valid() {
         <%=serviceClassName%>.instance = new STUB_<%=serviceClassName%>();
 
         <%=vMapperClassName%> <%=_.camelCase(vMapperClassName)%>Instance = <%=vMapperClassName%>.getInstance();

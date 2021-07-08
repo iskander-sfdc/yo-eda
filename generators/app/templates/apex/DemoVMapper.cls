@@ -41,7 +41,7 @@ public virtual with sharing class <%=vMapperClassName%> {
     /**********************************************************************************
      * @description Empty constructor is not public for Singleton Pattern
      **********************************************************************************/
-    public <%=vMapperClassName%>() {
+    protected <%=vMapperClassName%>() {
     }
 
     /**********************************************************************************

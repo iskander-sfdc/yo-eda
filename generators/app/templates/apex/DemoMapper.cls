@@ -41,7 +41,7 @@ public virtual with sharing class <%=mapperClassName%> {
     /**********************************************************************************
      * @description Empty constructor is not public for Singleton Pattern
      **********************************************************************************/
-    public <%=mapperClassName%>() {
+    protected <%=mapperClassName%>() {
     }
 
     /**********************************************************************************
@@ -57,8 +57,7 @@ public virtual with sharing class <%=mapperClassName%> {
     }
 
     /************************************************************************************************************
-     * @description Retrieve a <%=modelClassName%> representing the program plan settings
-     * specified in Hierarchy Settings.
+     * @description Retrieve a <%=modelClassName%> representing the <%=modelName%>
      * @return A <%=modelClassName%>
      ************************************************************************************************************/
     public virtual <%=modelClassName%> get<%=modelClassName%>() {
