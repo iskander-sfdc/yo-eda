@@ -39,7 +39,7 @@ public with sharing class <%=controllerClassName%> {
     @AuraEnabled(cacheable=true)
     public static <%=vModelClassName%> get<%=vModelClassName%>() {
         try {
-            return ProgramSettingsController.locate<%=vMapperClassName%>().get<%=vModelClassName%>();
+            return <%=controllerClassName%>.locate<%=vMapperClassName%>().get<%=vModelClassName%>();
         } catch (Exception e) {
             throw new AuraHandledException(e.getMessage());
         }
