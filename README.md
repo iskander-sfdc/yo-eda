@@ -17,13 +17,22 @@ TBD
 
 ### Install
 
-```
-# checkout the generator from GIT
-$ git checkout https://github.com/iskander-sfdc/yo-eda
+```bash
+# Install yeoman's `yo` command line utility
+$ npm install -g yo
+
+# Clone the generator repo from GIT
+$ git clone https://github.com/iskander-sfdc/yo-eda
+
+# Navigate to `yo-eda` local folder
+$ cd yo-eda
+
 # Install packages
 $ npm install
+
 # Link the generator locally
-$ sudo npm link
+$ npm link
+# On Mac you might need to run `sudo npm link`
 
 ```
 
