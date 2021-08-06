@@ -96,7 +96,7 @@ private with sharing class <%=controllerClassName%>_TEST {
      ****************************************************************************************/
     @isTest
     private static void get<%=vModelClassName%>Exception() {
-        <%=vMapperClassName%>.instance = new STUB_<%=vMapperClassName%>Exception();
+        <%=vMapperClassName%>.instance = new STUB_Exception<%=vMapperClassName%>();
 
         try {
             Test.startTest();
@@ -127,7 +127,7 @@ private with sharing class <%=controllerClassName%>_TEST {
     /**************************************************************************************************************************************
      * @description Stub class to simulate exception responses from <%=vMapperClassName%>
      **************************************************************************************************************************************/
-    private class STUB_<%=vMapperClassName%>Exception extends <%=vMapperClassName%> {
+    private class STUB_Exception<%=vMapperClassName%> extends <%=vMapperClassName%> {
 
         public override <%=vModelClassName%> get<%=vModelClassName%>() {
             throw new TestException('Exception encountered!');
