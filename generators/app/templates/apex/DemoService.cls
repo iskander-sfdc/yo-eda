@@ -49,10 +49,10 @@ public virtual with sharing class <%=serviceClassName%> {
      * @return The instance of <%=serviceClassName%>.
      **********************************************************************************/
     public static <%=serviceClassName%> getInstance() {
-        if (instance == null) {
-            instance = new <%=serviceClassName%>();
+        if (instance != null) {
+            return instance;
         }
-
+        instance = new <%=serviceClassName%>();
         return instance;
     }
 

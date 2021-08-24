@@ -49,10 +49,10 @@ public virtual with sharing class <%=vMapperClassName%> {
      * @return The instance of <%=vMapperClassName%>.
      **********************************************************************************/
     public static <%=vMapperClassName%> getInstance() {
-        if (instance == null) {
-            instance = new <%=vMapperClassName%>();
+        if (instance != null) {
+            return instance;
         }
-
+        instance = new <%=vMapperClassName%>();
         return instance;
     }
 
